@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/index.css';
+---
+
+<Layout title="Abhishek Rathore">
+  <main class="grid grid-rows-3">
+    <h1 class="title">Software Developer</h1>
+    <div class="flex gap-8 items-center">
+      <img class="h-60 w-auto object-cover flex-1" src="https://images.unsplash.com/photo-1582748142027-7f44356fc398?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1905&q=80" alt="man standing and looking away from camera">
+      <h2 class="flex-1 text-xl font-poppins">I make ideas come <br /> into life through code. </h2>
+    </div>
+    <h1 class="title ml-auto text-right">Abhishek Rathore</h1>
+  </main>
+</Layout>
+
+<style>
+  .title {
+    @apply block uppercase text-9xl font-semibold font-poppins text-black break-normal w-1/2  }
+</style>

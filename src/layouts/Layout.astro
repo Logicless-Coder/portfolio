@@ -1,0 +1,50 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="flex flex-col gap-4 px-8 py-4 bg-stone-200">
+    <Navbar />
+		<slot />
+    <div id='blob' class="absolute bg-white h-64 w-64 rounded-full -z-20 top-0 left-0 bg-gradient-to-r from-red-500 to-yellow-500 animate-stretch" />
+    <div id='blur' class="absolute inset-0 h-screen w-screen -z-10" />
+	</body>
+</html>
+
+<script>
+  const body = document.querySelector('body');
+  const blob = document.getElementById('blob');
+
+  body.addEventListener('mousemove', (event: MouseEvent) => {
+    const {clientX, clientY} = event;
+
+    blob.animate({
+     left: `${clientX}px`,
+     top: `${clientY}px`
+    }, { duration: 3000, fill: "forwards" }); 
+  })
+</script>
+
+<style>
+  #blur {
+    backdrop-filter: blur(200px);
+  }
+</style>
+
